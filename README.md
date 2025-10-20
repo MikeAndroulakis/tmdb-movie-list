@@ -14,7 +14,7 @@
 | ![Search](assets/Search_Screen_3_Loading.jpg)						| Search screen page with lazy loading and placeholder images		|
 | ![Search](assets/Search_Screen_4.jpg)								| Search screen page with loaded movies and pull-to-refresh action	|
 | ![Search](assets/Search_Screen_5_No_Movie_Overview_Dialog.jpg)	| Search screen page with no movie info								|
-| ![Detail](assets/Details_Screen.jpg) 								|
+| ![Detail](assets/Details_Screen.jpg) 								| Detail screen with the basic info of a Movie						|
 
 ---
 
@@ -119,7 +119,7 @@ TMDB_BASE_URL=https://api.themoviedb.org/3/
 
 ### 4. Run the App
 
-Select a device or emulator
+Select a device or emulator(the application runs on both)
 Click ▶ Run in Android Studio
 
 The app launches with a splash screen, then the movie search interface 🎥
@@ -138,7 +138,7 @@ This project includes Unit Tests.
 
 ---
 
-🧩 Dependency Injection (Hilt)
+##🧩 Dependency Injection (Hilt)
 ➡️ Instructs Hilt to inject MovieRepositoryImpl whenever MovieRepository is requested.
 
 ---
@@ -200,32 +200,3 @@ Developed by **Michael Androulakis**
 💬 *Clean Architecture • Jetpack Compose • Kotlin*  
 📍 Based in Greece 🇬🇷  
 🔗 [GitHub](https://github.com/MikeAndroulakis) • [LinkedIn](https://www.linkedin.com/in/michael-a-8283b4316/)
-
-
-## 🪶 License
-
-**MIT License**  
-Copyright (c) 2025 **Michael Androulakis**
-
-Permission is hereby granted, free of charge, to any person obtaining a copy  
-of this software and associated documentation files (the "Software"), to deal  
-in the Software without restriction, including without limitation the rights  
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell  
-copies of the Software, and to permit persons to whom the Software is  
-furnished to do so, subject to the following conditions:
-
-> The above copyright notice and this permission notice shall be included in  
-> all copies or substantial portions of the Software.
-
----
-
-### ⚖️ Disclaimer
-THE SOFTWARE IS PROVIDED **"AS IS"**, WITHOUT WARRANTY OF ANY KIND,  
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF  
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,  
-DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,  
-ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER  
-DEALINGS IN THE SOFTWARE.
-
----
