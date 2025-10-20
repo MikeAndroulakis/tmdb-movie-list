@@ -1,0 +1,48 @@
+name: 🧪 Android Unit Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout code from repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 2. Set JDK 17 (as in Gradle)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: temurin
+
+      # 3. Cache of Gradle for quicker builds
+      - name: Cache Gradle
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      # 4. Set protected variables (TMDB API keys)
+      # ⚠️ Added keys on GitHub Secrets
+      - name: Create gradle.properties
+        run: |
+          echo "TMDB_API_KEY=${{ secrets.TMDB_API_KEY }}" >> local.properties
+          echo "TMDB_BASE_URL=${{ secrets.TMDB_BASE_URL }}" >> local.properties
+
+      # 5. Grant permission to Gradle wrapper
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      # 6. Run Unit Tests (JVM only)
+      - name: Run Unit Tests
+        run: ./gradlew testDebugUnitTest --stacktrace
