@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Main theme of app -->
+    <style name="Theme.MovieList" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Custom background of app(when opening) -->
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+
+</resources>

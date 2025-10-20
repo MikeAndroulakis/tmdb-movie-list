@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name"             >Movie List</string>
+    <string name="search_movies_label"  >Search movies</string>
+    <string name="back"                 >Back</string>
+    <string name="rating"               >Rating</string>
+    <string name="rating_icon_desc"     >Movie rating star</string>
+    <string name="missing_data"         >Missing data</string>
+    <string name="missing_data_desc"    >It seems that no extra details have been shared for this movie yet. Please check back later!</string>
+    <string name="error"                >Error</string>
+    <string name="search_movies_desc"   >"Search for movies to get started"</string>
+    <string name="no_movies_desc"       >"There are no movies with this name. Try something else!"</string>
+    <string name="loading_info"         >"Loading info"</string>
+    <string name="retry"                >"Retry"</string>
+    <string name="connection_error"     >"The movies were not able to be fetched"</string>
+</resources>
