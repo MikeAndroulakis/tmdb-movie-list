@@ -27,66 +27,73 @@
 ## 🧱 Project Structure
 
 app/
-│
-├── core/
-│ └── di/
-│ ├── NetworkModule.kt 		# Provides Retrofit & OkHttp dependencies
-│ └── RepositoryModule.kt 	# Binds MovieRepositoryImpl → MovieRepository
-│
-├── data/
-│ ├── mapper/
-│ │ └── MovieMapper.kt 		# Maps DTOs → Domain models
-│ │
-│ ├── remote/
-│ │ ├── api/
-│ │ │ └── TmdbApi.kt 		# Retrofit interface for TMDB API
-│ │ │
-│ │ ├── dto/
-│ │ │ └── MoviesDto.kt 		# Data Transfer Objects (MovieDto, MoviesDto)
-│ │ │
-│ │ └── MoviesPagingSource.kt # Paging source for paginated API results
-│ │
-│ └── repository/
-│  └── MovieRepositoryImpl.kt # Repository implementation accessing TMDB API
-│
-├── domain/
-│ ├── model/
-│ │ └── Movie.kt # Core domain entity (Parcelable)
-│ │
-│ ├── repository/
-│ │ └── MovieRepository.kt # Repository interface (abstraction layer)
-│ │
-│ └── usecase/
-│  └── SearchMoviesUseCase.kt # Business logic for searching movies
-│
-├── presentation/
-│ ├── detail/
-│ │ └── DetailScreen.kt 	# Movie detail UI (poster, overview, rating)
-│ │
-│ ├── search/
-│ │ ├── SearchScreen.kt 	# Main search UI with pagination
-│ │ └── SearchViewModel.kt 	# ViewModel for managing search state
-│ │
-│ ├── splash/
-│ │ └── SplashScreen.kt # Loading splash with gradient background
-│ │
-│ ├── theme/
-│ │ ├── Color.kt 			# Color definitions
-│ │ ├── MovieBackground.kt 	# Gradient background composable
-│ │ └── Theme.kt 			# Material 3 color scheme setup
-│ │
-│ ├── ui/
-│ │ ├── components/
-│ │ │ └── MovieElements.kt # Shared UI components (dialogs, loading, etc.)
-│ │ │
-│ │ └── MovieApp.kt # Root composable (Navigation Host)
-│ │
-│ └── MovieListApp.kt # Hilt Application class
-│
-├── MainActivity.kt # App entry point (Splash → MovieApp)
-│
-├── com.example.movielist (test) 		# Unit tests
-└── com.example.movielist (androidTest) # (empty, no UI tests)
+└── com.example.movielist/
+    ├── core/
+    │   └── di/
+    │       📦 NetworkModule.kt          → Provides Retrofit, OkHttp & Moshi dependencies
+    │       📦 RepositoryModule.kt       → Binds MovieRepositoryImpl to MovieRepository (Hilt)
+    │
+    ├── data/
+    │   ├── mapper/
+    │   │   🧩 MovieMapper.kt            → Converts MovieDto → Movie (Domain model)
+    │   │
+    │   ├── remote/
+    │   │   ├── api/
+    │   │   │   🌐 TmdbApi.kt            → Retrofit interface for TMDB endpoints
+    │   │   │
+    │   │   ├── dto/
+    │   │   │   📄 MoviesDto.kt          → Network data models (MovieDto, MoviesDto)
+    │   │   │
+    │   │   └── 🔁 MoviesPagingSource.kt → PagingSource for incremental API loading
+    │   │
+    │   └── repository/
+    │       📂 MovieRepositoryImpl.kt    → Repository implementation (calls TmdbApi)
+    │
+    ├── domain/
+    │   ├── model/
+    │   │   🎞️ Movie.kt                 → Domain data class (used across app)
+    │   │
+    │   ├── repository/
+    │   │   🔗 MovieRepository.kt        → Abstraction for repository layer
+    │   │
+    │   └── usecase/
+    │       ⚙️ SearchMoviesUseCase.kt    → Business logic for movie search
+    │
+    ├── presentation/
+    │   ├── detail/
+    │   │   🎬 DetailScreen.kt           → UI for single movie details
+    │   │
+    │   ├── search/
+    │   │   🔍 SearchScreen.kt           → Main screen (search bar + movie list)
+    │   │   🧠 SearchViewModel.kt        → ViewModel managing search logic
+    │   │
+    │   ├── splash/
+    │   │   💫 SplashScreen.kt           → Initial loading animation (startup)
+    │   │
+    │   ├── theme/
+    │   │   🎨 Color.kt                  → Custom color palette
+    │   │   🧱 MovieBackground.kt        → Gradient background component
+    │   │   🎭 Theme.kt                  → Material3 theme definitions (dark/light)
+    │   │
+    │   ├── ui/
+    │   │   ├── components/
+    │   │   │   🧩 MovieElements.kt      → Reusable UI composables (poster, text, stars)
+    │   │   │   🪶 ErrorState.kt, InfoDialog.kt, LoadingIndicator.kt, etc.
+    │   │   │                            → Common UI states and helpers
+    │   │   │
+    │   │   📱 MovieApp.kt               → Navigation host (Search → Detail)
+    │   │
+    │   ├── 🏠 MainActivity.kt           → Entry point Activity (Compose host + Hilt)
+    │   └── 🚀 MovieListApp.kt           → Application class with @HiltAndroidApp
+    │
+    ├── test/
+    │   ├── MovieMapperTest.kt           → Tests DTO → Domain mapping correctness
+    │   ├── MoviesPagingSourceTest.kt    → Tests API paging & error handling
+    │   ├── SearchMoviesUseCaseTest.kt   → Verifies repository → usecase interaction
+    │   └── SearchViewModelTest.kt       → Unit tests ViewModel logic using fake repo
+    │
+    └── androidTest/
+        (📭 Empty — UI tests not implemented)
 
 ---
 
