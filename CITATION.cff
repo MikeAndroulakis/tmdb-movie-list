@@ -1,0 +1,25 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Tmdb
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Michael
+    family-names: Androulakis
+    email: mikeandr@hotmail.com
+    orcid: 'https://orcid.org/0009-0002-6941-9961'
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.17683395
+repository-code: 'https://github.com/MikeAndroulakis/tmdb-movie-list'
+keywords:
+  - Tmdb
+  - kotlin
+license: MIT
+commit: c4ac0593d6b30fb7d21460a5a89cf1c5b6f4dd9e
+version: '1.0'
+date-released: '2025-10-20'
